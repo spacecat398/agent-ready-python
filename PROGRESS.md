@@ -1,6 +1,6 @@
 # Agent-ready Python 开发进度
 
-> 最后更新：2026-07-13 23:22:17 +08:00
+> 最后更新：2026-07-13 23:24:23 +08:00
 
 ## 当前状态
 
@@ -9,8 +9,8 @@
 | 当前阶段 | Phase 8：分发与发布验收 |
 | 阶段状态 | `completed` |
 | 总体方向 | 模块化单体、目录级 Feature、显式 Composition Root |
-| 当前阻塞 | GitHub 推送连接的本地 `127.0.0.1` 代理未运行；PyPI 配置仍待确认 |
-| 下一步 | 完成本地初始提交，恢复 GitHub 网络后推送 `main`，再处理 PyPI 发布决策 |
+| 当前阻塞 | 正式发布前需确认 PyPI 名称、版本标签和 trusted publishing 配置 |
+| 下一步 | 等待 GitHub Actions 验证 `main`，再完成 PyPI 发布决策和最终 clean-build |
 
 ## 状态定义
 
@@ -151,6 +151,17 @@
 - [x] 不上传 PyPI，不调用远程 Provider。
 
 ## 时间线
+
+### 2026-07-13 23:24:23 +08:00
+
+状态：`completed`
+
+- 初始化本地 Git 仓库，默认分支为 `main`，并配置 GitHub `origin`；
+- 审查 263 个首次提交文件，确认未包含 `.env`、虚拟环境、缓存、构建制品或常见格式密钥；
+- 使用维护者身份创建初始提交 `61028bd`（`Initial release candidate`）；
+- 通过单次命令绕过未运行的本地代理，成功推送 `main` 到 GitHub；
+- 远程 `refs/heads/main` 已核对为提交 `61028bd675e777116d316fadb230ecee7830f298`；
+- 未修改用户或仓库 Git 配置，未上传 PyPI，未调用远程 Provider。
 
 ### 2026-07-13 23:22:17 +08:00
 
