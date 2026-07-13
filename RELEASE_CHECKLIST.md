@@ -1,7 +1,7 @@
 # Release Checklist
 
-This checklist describes the engineering state of the `0.1.0` release candidate. It does not
-claim that the package has been published.
+This checklist describes the engineering state and remaining publication steps for release
+`0.1.0`. It does not claim that the package has been published to PyPI.
 
 ## Verified technical items
 

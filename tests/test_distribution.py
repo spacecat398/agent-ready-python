@@ -84,9 +84,8 @@ def test_release_documents_keep_remaining_pending_confirmation_items() -> None:
     assert changelog_path.is_file()
     assert checklist_path.is_file()
 
-    changelog = changelog_path.read_text(encoding="utf-8").lower()
-    assert "release candidate" in changelog
-    assert "not published" in changelog
+    changelog_lines = changelog_path.read_text(encoding="utf-8").splitlines()
+    assert "## [0.1.0] - 2026-07-13" in changelog_lines
 
     pending_items = [
         line.lower()

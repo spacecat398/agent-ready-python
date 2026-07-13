@@ -1,6 +1,6 @@
 # Agent-ready Python 开发进度
 
-> 最后更新：2026-07-13 23:26:14 +08:00
+> 最后更新：2026-07-13 23:42:17 +08:00
 
 ## 当前状态
 
@@ -151,6 +151,26 @@
 - [x] 不上传 PyPI，不调用远程 Provider。
 
 ## 时间线
+
+### 2026-07-13 23:42:17 +08:00
+
+状态：`completed`
+
+- 将 README、CHANGELOG 和发布检查表统一为正式 `0.1.0` 发布描述；
+- 更新分发测试，不再把正式版本断言为 release candidate；
+- `uv sync --locked`、Ruff、187 项 pytest 和 `uv build --clear` 全部通过；
+- 新 wheel 元数据确认版本 `0.1.0`、MIT、作者和 GitHub URL 正确；
+- wheel 和 sdist 均未发现 `.env`、虚拟环境、缓存、pyc、build 或 dist 残留；
+- 未创建标签或 GitHub Release，未上传 PyPI，未调用远程 Provider。
+
+### 2026-07-13 23:38:37 +08:00
+
+状态：`in_progress`
+
+- 维护者确认将 `0.1.0` 作为正式首版创建 GitHub Release；
+- 开始将 README、CHANGELOG 和发布检查表中的候选版文案更新为正式版本描述；
+- 将同步更新发布文档测试并执行完整 Ruff、pytest、build 和远程 CI 验证；
+- 不创建标签或 GitHub Release，不上传 PyPI，不调用远程 Provider。
 
 ### 2026-07-13 23:26:14 +08:00
 

@@ -88,11 +88,10 @@ assignments remain an error, and every preset is validated against its own modul
 The destination must be empty. The assembler creates `.env.example` from the selected modules but
 never creates or overwrites `.env`. Generated projects do not discover modules at runtime.
 
-## Release-candidate validation
+## Release validation
 
-Version `0.1.0` is a release candidate and has not been published to PyPI. The local validation
-builds both distribution formats, installs the wheel into an isolated environment, and runs the
-installed generator without using the source checkout:
+The validation for version `0.1.0` builds both distribution formats, installs the wheel into an
+isolated environment, and runs the installed generator without using the source checkout:
 
 ```console
 uv sync --locked
@@ -121,8 +120,8 @@ test ! -e "$validation_root/minimal/.env"
 test ! -e "$validation_root/rag-local/.env"
 ```
 
-See the [changelog](CHANGELOG.md) and [release checklist](RELEASE_CHECKLIST.md) for the current
-release-candidate scope and the maintainer confirmations still required before publication.
+See the [changelog](CHANGELOG.md) and [release checklist](RELEASE_CHECKLIST.md) for the release scope
+and the maintainer actions still required for GitHub and PyPI publication.
 
 ## Generated samples
 
