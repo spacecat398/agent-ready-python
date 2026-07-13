@@ -1,0 +1,9 @@
+id = "artifacts"
+kind = "feature"
+description = "Immutable typed and versioned intermediate artifacts"
+requires = []
+optional = []
+conflicts = []
+python_dependencies = []
+exports = ["Artifact", "ArtifactProvenance", "QualityResult", "ValidationIssue"]
+files = ["features/artifacts"]

@@ -1,0 +1,5 @@
+id = "artifact-pipeline"
+description = "Validated artifact pipeline with local SQLite persistence"
+modules = ["pipeline", "sqlite-artifacts"]
+
+[adapters]

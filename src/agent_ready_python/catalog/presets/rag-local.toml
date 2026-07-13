@@ -1,0 +1,7 @@
+id = "rag-local"
+description = "Local document retrieval with filesystem documents and fake embeddings"
+modules = ["retrieval", "embeddings"]
+
+[adapters]
+documents = "filesystem"
+embeddings = "fake"

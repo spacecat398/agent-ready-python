@@ -1,0 +1,16 @@
+id = "retrieval"
+kind = "feature"
+description = "Local keyword retrieval with optional semantic enhancement"
+requires = ["documents"]
+optional = ["embeddings"]
+conflicts = []
+python_dependencies = []
+exports = ["Retriever", "RetrievalMatch", "RetrievalService"]
+files = [
+    "features/retrieval/__init__.py",
+    "features/retrieval/keyword.py",
+    "features/retrieval/models.py",
+    "features/retrieval/ports.py",
+    "features/retrieval/service.py",
+    "interfaces/cli/retrieval.py",
+]

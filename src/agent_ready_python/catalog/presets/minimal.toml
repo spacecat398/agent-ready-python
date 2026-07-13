@@ -1,0 +1,5 @@
+id = "minimal"
+description = "Foundation and core CLI only"
+modules = []
+
+[adapters]

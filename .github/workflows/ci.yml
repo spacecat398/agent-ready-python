@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run pytest
+      - run: uv run ai-app version
+      - run: uv run ai-app check
+      - run: uv run ai-app retrieval-check
+      - run: uv run ai-app search README.md "keyword retrieval"
+      - run: uv run ai-app pipeline-check
+      - name: Build and smoke-test the wheel
+        shell: bash
+        run: |
+          set -euo pipefail
+          uv build
+          mapfile -t wheels < <(find "$GITHUB_WORKSPACE/dist" -maxdepth 1 -type f -name '*.whl' -print)
+          test "${#wheels[@]}" -eq 1
+          wheel="${wheels[0]}"
+          validation_root="$(mktemp -d)"
+          trap 'rm -rf "$validation_root"' EXIT
+          wheel_venv="$validation_root/wheel-venv"
+          uv venv "$wheel_venv"
+          uv pip install --python "$wheel_venv/bin/python" "$wheel"
+          (
+            cd "$validation_root"
+            "$wheel_venv/bin/create-ai-app" --list-presets
+            "$wheel_venv/bin/create-ai-app" "$validation_root/minimal" --preset minimal
+            "$wheel_venv/bin/create-ai-app" "$validation_root/rag-local" --preset rag-local
+          )
+          uv sync --directory "$validation_root/minimal" --dev
+          uv run --directory "$validation_root/minimal" pytest
+          uv sync --directory "$validation_root/rag-local" --dev
+          uv run --directory "$validation_root/rag-local" pytest
+          test ! -e "$validation_root/minimal/.env"
+          test ! -e "$validation_root/rag-local/.env"

@@ -1,0 +1,41 @@
+id = "llm-text"
+kind = "feature"
+description = "Provider-independent text generation"
+requires = []
+optional = []
+conflicts = []
+python_dependencies = []
+exports = ["TextGenerator", "TextGenerationRequest", "TextGenerationResult"]
+default_adapter = "fake"
+files = [
+    "features/text_generation",
+    "contracts/__init__.py",
+    "contracts/text_generation.py",
+    "application.py",
+    "interfaces/cli/text_generation.py",
+]
+env_example = []
+
+[[adapters]]
+id = "fake"
+python_dependencies = []
+files = ["adapters/fake/text_generator.py"]
+env_example = [
+    "AI_LLM_PROVIDER=fake",
+    "AI_LLM_MODEL=fake",
+    "AI_LLM_FAKE_RESPONSE=Fake provider response",
+]
+
+[[adapters]]
+id = "openai-compatible"
+python_dependencies = ["httpx>=0.27,<1"]
+files = ["adapters/openai_compatible"]
+env_example = [
+    "AI_LLM_PROVIDER=openai_compatible",
+    "AI_LLM_API_KEY=",
+    "AI_LLM_AUTH_MODE=bearer",
+    "AI_LLM_BASE_URL=https://api.openai.com/v1",
+    "AI_LLM_MODEL=gpt-4o-mini",
+    "AI_LLM_TIMEOUT_SECONDS=60",
+    "AI_LLM_MAX_RETRIES=2",
+]

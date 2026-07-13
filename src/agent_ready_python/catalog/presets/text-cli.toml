@@ -1,0 +1,6 @@
+id = "text-cli"
+description = "Offline text generation with the fake Adapter"
+modules = ["llm-text"]
+
+[adapters]
+"llm-text" = "fake"

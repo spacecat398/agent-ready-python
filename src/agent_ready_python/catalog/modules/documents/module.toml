@@ -1,0 +1,20 @@
+id = "documents"
+kind = "feature"
+description = "Strict text document models and deterministic chunking"
+requires = []
+optional = []
+conflicts = []
+python_dependencies = []
+exports = ["Document", "DocumentChunk", "TextChunker"]
+default_adapter = "filesystem"
+files = ["features/documents"]
+env_example = [
+    "AI_DOCUMENTS_CHUNK_SIZE=500",
+    "AI_DOCUMENTS_CHUNK_OVERLAP=80",
+    "AI_DOCUMENTS_MAX_FILE_BYTES=5000000",
+]
+
+[[adapters]]
+id = "filesystem"
+python_dependencies = []
+files = ["adapters/filesystem"]

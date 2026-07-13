@@ -1,0 +1,9 @@
+id = "pipeline"
+kind = "feature"
+description = "Validated sequential execution with persisted stage outputs and resume"
+requires = ["artifacts"]
+optional = []
+conflicts = []
+python_dependencies = []
+exports = ["Processor", "Validator", "PipelineStage", "PipelineRunner"]
+files = ["features/pipeline"]

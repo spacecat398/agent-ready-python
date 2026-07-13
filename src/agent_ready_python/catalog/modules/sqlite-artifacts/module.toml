@@ -1,0 +1,9 @@
+id = "sqlite-artifacts"
+kind = "adapter"
+description = "SQLite append-only Artifact Store and active-version references"
+requires = ["artifacts"]
+optional = []
+conflicts = []
+python_dependencies = []
+exports = ["SQLiteArtifactStore"]
+files = ["adapters/sqlite_artifacts"]

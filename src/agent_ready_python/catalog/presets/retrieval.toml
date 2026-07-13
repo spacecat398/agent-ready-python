@@ -1,0 +1,6 @@
+id = "retrieval"
+description = "Legacy local keyword retrieval preset"
+modules = ["documents", "retrieval"]
+
+[adapters]
+documents = "filesystem"

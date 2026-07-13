@@ -1,0 +1,34 @@
+id = "embeddings"
+kind = "feature"
+description = "Provider-independent vector embeddings"
+requires = []
+optional = []
+conflicts = []
+python_dependencies = []
+exports = ["EmbeddingProvider", "EmbeddingResult"]
+default_adapter = "fake"
+files = ["features/embeddings", "contracts/__init__.py", "contracts/embeddings.py"]
+env_example = ["AI_EMBEDDING_ENABLED=false"]
+
+[[adapters]]
+id = "fake"
+python_dependencies = []
+files = ["adapters/fake/embeddings.py"]
+env_example = [
+    "AI_EMBEDDING_PROVIDER=fake",
+    "AI_EMBEDDING_MODEL=sha256-8",
+]
+
+[[adapters]]
+id = "openai-compatible"
+python_dependencies = ["httpx>=0.27,<1"]
+files = ["adapters/openai_compatible_embeddings"]
+env_example = [
+    "AI_EMBEDDING_PROVIDER=openai_compatible",
+    "AI_EMBEDDING_API_KEY=",
+    "AI_EMBEDDING_AUTH_MODE=bearer",
+    "AI_EMBEDDING_BASE_URL=https://api.openai.com/v1",
+    "AI_EMBEDDING_MODEL=text-embedding-3-small",
+    "AI_EMBEDDING_TIMEOUT_SECONDS=30",
+    "AI_EMBEDDING_MAX_RETRIES=1",
+]
