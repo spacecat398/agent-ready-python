@@ -1,6 +1,6 @@
 # Agent-ready Python 开发进度
 
-> 最后更新：2026-07-13 23:24:23 +08:00
+> 最后更新：2026-07-13 23:26:14 +08:00
 
 ## 当前状态
 
@@ -10,7 +10,7 @@
 | 阶段状态 | `completed` |
 | 总体方向 | 模块化单体、目录级 Feature、显式 Composition Root |
 | 当前阻塞 | 正式发布前需确认 PyPI 名称、版本标签和 trusted publishing 配置 |
-| 下一步 | 等待 GitHub Actions 验证 `main`，再完成 PyPI 发布决策和最终 clean-build |
+| 下一步 | 完成 PyPI 发布决策和最终 clean-build，再创建匹配的 `0.1.0` 标签 |
 
 ## 状态定义
 
@@ -151,6 +151,14 @@
 - [x] 不上传 PyPI，不调用远程 Provider。
 
 ## 时间线
+
+### 2026-07-13 23:26:14 +08:00
+
+状态：`completed`
+
+- GitHub Actions 已完成对远程 `main` 提交 `0714c25` 的 CI 验收；
+- CI 运行 `29262161978` 结论为 `success`；
+- GitHub 仓库初始化与首次公开推送完成，后续阻塞仅保留 PyPI 和正式版本标签决策。
 
 ### 2026-07-13 23:24:23 +08:00
 
