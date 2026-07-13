@@ -1,6 +1,6 @@
 # Agent-ready Python 开发进度
 
-> 最后更新：2026-07-13 23:42:17 +08:00
+> 最后更新：2026-07-13 23:49:44 +08:00
 
 ## 当前状态
 
@@ -9,8 +9,8 @@
 | 当前阶段 | Phase 8：分发与发布验收 |
 | 阶段状态 | `completed` |
 | 总体方向 | 模块化单体、目录级 Feature、显式 Composition Root |
-| 当前阻塞 | 正式发布前需确认 PyPI 名称、版本标签和 trusted publishing 配置 |
-| 下一步 | 完成 PyPI 发布决策和最终 clean-build，再创建匹配的 `0.1.0` 标签 |
+| 当前阻塞 | PyPI 名称、项目所有权和 trusted publishing 配置仍待确认 |
+| 下一步 | 配置 PyPI Trusted Publishing，完成最终上传前检查，再发布 `0.1.0` 包 |
 
 ## 状态定义
 
@@ -151,6 +151,16 @@
 - [x] 不上传 PyPI，不调用远程 Provider。
 
 ## 时间线
+
+### 2026-07-13 23:49:44 +08:00
+
+状态：`completed`
+
+- 正式 GitHub Release `v0.1.0` 已公开发布并标记为 production/latest release；
+- 标签 `v0.1.0` 指向已通过 CI 的最终发布提交 `b4bf97c70b2571cded44301756f1a5e9ef900be2`；
+- wheel 和 sdist 两个附件均上传成功，GitHub SHA-256 与本地最终构建一致；
+- Release 标题、说明、MIT、187 项测试和分发验收信息完整；
+- GitHub 源码与 Release 发布完成，后续仅保留 PyPI 发布流程。
 
 ### 2026-07-13 23:42:17 +08:00
 

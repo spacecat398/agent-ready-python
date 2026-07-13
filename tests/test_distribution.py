@@ -87,16 +87,27 @@ def test_release_documents_keep_remaining_pending_confirmation_items() -> None:
     changelog_lines = changelog_path.read_text(encoding="utf-8").splitlines()
     assert "## [0.1.0] - 2026-07-13" in changelog_lines
 
+    completed_items = [
+        line.lower()
+        for line in checklist_path.read_text(encoding="utf-8").splitlines()
+        if line.lstrip().startswith("- [x]")
+    ]
     pending_items = [
         line.lower()
         for line in checklist_path.read_text(encoding="utf-8").splitlines()
         if line.lstrip().startswith("- [ ]")
     ]
+    assert any(
+        "final version" in completed_item
+        and "0.1.0" in completed_item
+        and "v0.1.0" in completed_item
+        for completed_item in completed_items
+    )
+    assert not any("final version" in pending_item for pending_item in pending_items)
     assert all(
         any(item in pending_item for pending_item in pending_items)
         for item in (
             "pypi project name",
-            "final version",
             "trusted-publishing",
             "clean checkout",
             "api key",

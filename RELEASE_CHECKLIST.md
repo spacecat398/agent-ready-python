@@ -23,7 +23,7 @@ This checklist describes the engineering state and remaining publication steps f
 - [x] Confirm the GitHub repository and README documentation URLs.
 - [ ] Check that the PyPI project name `agent-ready-python` is available and resolve any naming
       conflict before publishing.
-- [ ] Confirm the final version, release notes, and matching VCS tag.
+- [x] Confirm final version `0.1.0`, publish the release notes, and create matching tag `v0.1.0`.
 - [ ] Confirm the publication credentials and trusted-publishing configuration, including the
       repository, environment, permissions, and PyPI project ownership.
 - [ ] Review the final wheel and sdist contents from a clean checkout before upload.
